@@ -1,0 +1,50 @@
+<!--なぜIDになるの？　インデックスも含めて。-->
+
+<h2>商品詳細</h2>
+      <td><%= image_tag @item.get_sweets_image(100,100) %></td>
+
+      <table>
+      <tbody>
+        <tr>
+          <td>商品名</td>
+          <td><%= @item.name %></td>
+        </tr>
+        <tr>
+          <td>商品説明</td>
+          <td>
+            <%= @item.introduction %>
+          </td>
+        </tr>
+        <tr>
+          <td>ジャンル</td>
+          <td>
+            <%= @item.genre_id %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>税込価格</p>
+            <p>(税抜価格)</p>
+          </td>
+          <td>
+            <span>(<%= @item.add_tax_price.to_s(:delimited) %>) 円</span>
+            <span><%= @item.price.to_s(:delimited) %></span>
+          </td>
+        </tr>
+        <tr>
+          <td>販売ステータス</td>
+          <td>
+            <% if @item.is_active == true %>
+            	<span>販売中</span>
+      			<% else %>
+  	    			<span>販売停止中</span>
+  		    	<% end %>
+  		    </td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to "編集する", edit_admin_item_path(@item), class: "btn btn-success" %>
+          </td>
+        </tr>
+      </tbody>
+      </table>
