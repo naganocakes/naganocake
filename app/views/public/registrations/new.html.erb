@@ -1,0 +1,26 @@
+<h2>新規会員登録</h2>
+<%= form_with model: @customer, url: new_customer_registration_path do |f| %>
+<%= render "public/shared/error_messages", resource: resource %>
+<%= f.label "名前" %>
+<%= f.text_field :last_name, autofocus: true,  placeholder: "(姓) 令和" %>
+<%= f.text_field :first_name, autofocus: true,  placeholder: "(名) 道子" %>
+<%= f.label :last_name_kana, "フリガナ" %>
+<%= f.text_field :last_name_kana, autofocus: true,  placeholder: "(セイ) レイワ" %>
+<%= f.text_field :first_name_kana, autofocus: true,  placeholder: "(メイ)ミチコ" %>
+<%= f.label :email, "メールアドレス" %>
+<%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
+<%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
+<%= f.text_field :postal_code, autofocus: true, placeholder: "00000000" %>
+<%= f.label :addres, "住所" %>
+<%= f.text_area :address, autofocus: true, placeholder: "東京都渋谷区代々木神園町0-0" %>
+<%= f.label :tel, "電話番号（ハイフンなし）" %>
+<%= f.text_field :tel, autofocus: true, placeholder: "00000000000" %>
+<%= f.label :password, "パスワード（６文字以上）" %>
+<%= f.password_field :password %>
+<%= f.label :password_confirmation, "パスワード（確認用）" %>
+<%= f.password_field :password_confirmation %>
+<%= f.submit "新規登録", class:"btn btn-success" %>
+<% end %>
+
+<h2>既に登録済みの方</h2>
+<p><%= link_to "こちら", new_customer_session_path %> からログインしてください。</p>

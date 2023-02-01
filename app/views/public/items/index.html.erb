@@ -1,0 +1,8 @@
+<h4>商品一覧(全<%= @items.count %>)件</h4>
+<% @items.each do |item| %>
+<%= link_to item_path(item.id) do %>
+<%= image_tag item, :image, format: 'jpg', size: "200x150", fallback:"no_image.jpg" %>
+<% end %>
+<%= item.name %>
+¥<%= item.price %>
+<% end %>
